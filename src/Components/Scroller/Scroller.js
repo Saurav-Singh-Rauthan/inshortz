@@ -4,7 +4,7 @@ import SwiperCore, { Pagination, Mousewheel, EffectCoverflow } from "swiper";
 
 import "swiper/css/bundle";
 import Styles from "./Scroller.module.css";
-import { Style } from "@mui/icons-material";
+import Short from "../Short/Short";
 
 const Scroller = (props) => {
   SwiperCore.use([Pagination]);
@@ -25,7 +25,9 @@ const Scroller = (props) => {
         className="mySwiper"
         style={{ height: "inherit" }}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>
+          <Short></Short>
+        </SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
