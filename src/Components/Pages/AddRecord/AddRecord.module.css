@@ -1,6 +1,6 @@
 .cont {
   display: grid;
-  grid-template-columns: 55% 43%;
+  grid-template-columns: 40% 57%;
   padding: 1rem;
   column-gap: 1rem;
 }
@@ -21,13 +21,9 @@
   color: #f7444e;
 }
 
-.previewCont {
-  padding: 1rem 0;
-}
-
 .textarea {
-  width: 100%;
-  min-height: 24px;
+  min-width: 100%;
+  min-height: 80px;
   max-width: 100%;
   border-radius: 4px;
   padding: 16px 14px;
@@ -37,6 +33,38 @@
 }
 
 .textarea:focus {
-  outline-color:  rgb(25,118,210) !important;
+  outline-color: rgb(25, 118, 210) !important;
   outline-width: 1px;
+}
+
+.previewCont {
+  padding: 1rem 0;
+}
+
+.shortPrev {
+  border: 1px solid #ccc;
+  height: 430px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.addBtn {
+  position: absolute;
+  bottom: -24px;
+  padding: 1rem;
+  background: #f7444e;
+  border: none;
+  color: #f7f8f3;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  border: 1px solid #f7444e;
+}
+
+.addBtn:hover {
+  color: #f7444e;
+  background: #f7f8f3;
 }

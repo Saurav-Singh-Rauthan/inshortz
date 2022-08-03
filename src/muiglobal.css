@@ -1,0 +1,7 @@
+.Mui-checked+.MuiSwitch-track {
+  background-color: #f7444e !important;
+}
+
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: #f7444e !important;
+}

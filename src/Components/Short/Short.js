@@ -9,7 +9,8 @@ const Short = (props) => {
       <div className={Styles.infot}>
         <img
           src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80"
-          alt=""
+          alt="shortImage"
+          className={Styles.image}
         />
       </div>
       <div className={Styles.descCont}>
@@ -25,10 +26,7 @@ const Short = (props) => {
           Magh month according to Hindu Calander. Basant Panchami marks the end
           of the winter season. In this festival the kids are taught to write
           their first words according to the Hindu Custom. People usually wear
-          yellow garments in this festival. Goddess of knowledge, Devi Saraswati
-          is worshipped all over the country. Yellow sweets are consumed within
-          the families. Everyone enjoy the festival with great fun and
-          enthusiasm.
+          yellow garments in this festival.
         </p>
         <p className={Styles.author}>Author : Saurav Singh Rauthan</p>
         <div className={Styles.tagCont}>

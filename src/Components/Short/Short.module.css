@@ -10,16 +10,21 @@
   justify-content: center;
 }
 
-.infot img {
+.image {
   max-height: 280px;
   object-fit: cover;
   width: 100%;
   overflow: hidden;
+  position: absolute;;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .descCont {
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  bottom: -40%;
   left: 0;
   right: 0;
   width: 90%;
