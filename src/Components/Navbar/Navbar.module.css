@@ -2,11 +2,10 @@
   width: 100%;
   padding: 0 2rem;
   background: #e63946;
-  display: grid;
-  grid-template-columns: 85% 15%;
+  display: flex;
   color: #f7f8f3;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .cont p {
@@ -31,4 +30,32 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .cont {
+    padding: 0 1rem;
+  }
+
+  .icon {
+    padding: 0 0.5rem;
+  }
+
+  .cont p {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 756px) {
+  .cont {
+    padding: 0 1rem;
+  }
+
+  .cont p {
+    font-size: 20px;
+  }
+
+  .icon {
+    padding: 0 1rem;
+  }
 }
