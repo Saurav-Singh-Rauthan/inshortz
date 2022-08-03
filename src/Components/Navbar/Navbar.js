@@ -1,24 +1,43 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import Styles from "./Navbar.module.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import FindInPageIcon from '@mui/icons-material/FindInPage';
+import FindInPageIcon from "@mui/icons-material/FindInPage";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Navbar = (props) => {
   return (
     <div className={Styles.cont}>
-      <p>INSHORTZ</p>
+      <NavLink to="/">
+        <p>INSHORTZ</p>
+      </NavLink>
       <div className={Styles.iconCont}>
-        <div className={Styles.icon}>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? Styles.active : Styles.icon)}
+        >
+          <HomeIcon />
+        </NavLink>
+        <NavLink
+          to="/add-short"
+          className={({ isActive }) => (isActive ? Styles.active : Styles.icon)}
+        >
           <AddCircleIcon />
-        </div>
-        <div className={Styles.icon}>
+        </NavLink>
+        <NavLink
+          to="/search"
+          className={({ isActive }) => (isActive ? Styles.active : Styles.icon)}
+        >
           <FindInPageIcon />
-        </div>
-        <div className={Styles.icon}>
+        </NavLink>
+        <NavLink
+          to="/account"
+          className={({ isActive }) => (isActive ? Styles.active : Styles.icon)}
+        >
           <AccountCircleIcon />
-        </div>
+        </NavLink>
       </div>
     </div>
   );

@@ -1,0 +1,24 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  height: 50%;
+}
+
+
+.cont a {
+  text-decoration: none;
+  color: #f7444e;
+  padding: 1rem;
+  transition: all 0.5s ease-out;
+}
+
+.cont a:hover {
+  background: #f7444e;
+  color: #f7f8f3;
+}

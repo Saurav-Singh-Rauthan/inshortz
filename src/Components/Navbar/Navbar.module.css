@@ -1,7 +1,7 @@
 .cont {
   width: 100%;
   padding: 0 2rem;
-  background: #e63946;
+  background: #f7444e;
   display: flex;
   color: #f7f8f3;
   align-items: center;
@@ -16,6 +16,11 @@
   padding: 0;
 }
 
+.cont a {
+  text-decoration: none;
+  color: #f7f8f3;
+}
+
 .iconCont {
   display: flex;
   height: 100%;
@@ -23,13 +28,26 @@
   justify-content: space-between;
 }
 
-.icon {
+.icon,
+.iconCont a {
   padding: 0 1rem;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.iconCont a {
+  text-decoration: none;
+  color: #f7f8f3;
+  /* transition: all 0.3s ease-out; */
+}
+
+.iconCont a:active,
+.iconCont a:hover,
+.active {
+  border-top: 4px solid #f7f8f3;
 }
 
 @media (max-width: 400px) {

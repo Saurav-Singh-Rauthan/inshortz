@@ -4,6 +4,7 @@ import SwiperCore, { Pagination, Mousewheel, EffectCoverflow } from "swiper";
 
 import "swiper/css/bundle";
 import Styles from "./Scroller.module.css";
+import { Style } from "@mui/icons-material";
 
 const Scroller = (props) => {
   SwiperCore.use([Pagination]);
@@ -18,6 +19,7 @@ const Scroller = (props) => {
         mousewheel
         pagination={{
           dynamicBullets: true,
+          // bulletActiveClass: Styles.activeBullet,
         }}
         modules={[Mousewheel, Pagination, EffectCoverflow]}
         className="mySwiper"
