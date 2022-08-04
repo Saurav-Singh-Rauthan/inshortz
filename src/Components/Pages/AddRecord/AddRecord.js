@@ -75,8 +75,8 @@ const AddRecord = (props) => {
       <div className={Styles.previewCont}>
         <p className={Styles.heading}>Preview Short</p>
         <div className={Styles.shortPrev}>
-          <div style={{overflowY: "scroll", height: "430px"}}>
-            <Short />
+          <div style={{ overflowY: "scroll", height: "430px" }}>
+            <Short prev={true} />
           </div>
           <button className={Styles.addBtn}>ADD SHORT</button>
         </div>

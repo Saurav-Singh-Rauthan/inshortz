@@ -5,7 +5,7 @@ import Styles from "./Short.module.css";
 
 const Short = (props) => {
   return (
-    <div className={Styles.cont}>
+    <div className={props.prev ? Styles.contPreview : Styles.cont}>
       <div className={Styles.infot}>
         <img
           src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80"
@@ -19,7 +19,7 @@ const Short = (props) => {
           goddess of knowledge, music and art. It is celebrated throughout the
           India.
         </p>
-        <p>
+        <p className={Styles.content}>
           'Basant Panchami' is a Hindu festival celebrating Saraswati, the
           goddess of knowledge, music and art. It is celebrated throughout the
           India. It is celebrated every year on the fifth day (Panchami) of the

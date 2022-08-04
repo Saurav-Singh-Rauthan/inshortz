@@ -28,7 +28,7 @@
   border-radius: 4px;
   padding: 16px 14px;
   font-size: 1rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif ;
   border: 1px solid #ccc;
 }
 
@@ -62,9 +62,29 @@
   cursor: pointer;
   transition: all 0.5s ease-out;
   border: 1px solid #f7444e;
+  z-index: 20;
+  font-family: 'Poppins', sans-serif;
 }
 
 .addBtn:hover {
   color: #f7444e;
   background: #f7f8f3;
+}
+
+@media (max-width: 756px) {
+  .cont {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    column-gap: 1rem;
+    overflow-y: scroll;
+  }
+
+  .previewCont {
+    margin-bottom: 1.5rem;
+  }
+
+  .content {
+    padding: 0;
+  }
 }

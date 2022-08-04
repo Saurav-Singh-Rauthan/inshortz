@@ -11,7 +11,7 @@ body {
 }
 
 .App {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: grid;
   grid-template-rows: 90% 10%;
@@ -21,6 +21,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #f7f8f3;
 }
 
 .swiper-pagination-bullet-active {
