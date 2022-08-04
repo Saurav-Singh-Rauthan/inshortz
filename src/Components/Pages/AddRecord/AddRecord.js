@@ -13,14 +13,61 @@ import Short from "../../Short/Short";
 
 const AddRecord = (props) => {
   const [type, settype] = useState("img");
-  const [sensitive, setsensitive] = useState(false);
-
-  const handleChange = (event) => {
-    settype(event.target.value);
-  };
+  const [shortData, setshortData] = useState({
+    type: null,
+    link: null,
+    title: null,
+    content: null,
+    author: null,
+    sensitive: false,
+    tags: [],
+  });
 
   const toggleSwitch = () => {
-    setsensitive((prevState) => !prevState);
+    setshortData((prevState) => {
+      return {
+        ...prevState,
+        sensitive: !prevState.sensitive,
+      };
+    });
+  };
+
+  const valueChangeHandler = (event, type) => {
+    switch (type) {
+      case "type":
+        setshortData({
+          ...shortData,
+          type: event.target.value,
+        });
+        break;
+      case "title":
+        setshortData({
+          ...shortData,
+          title: event.target.value,
+        });
+        break;
+      case "content":
+        setshortData({
+          ...shortData,
+          content: event.target.value,
+        });
+        break;
+      case "link":
+        setshortData({
+          ...shortData,
+          link: event.target.value,
+        });
+        break;
+      case "tags":
+        const tags = event.target.value.trim().split(" ");
+        setshortData({
+          ...shortData,
+          tags: tags,
+        });
+        break;
+      default:
+        console.log("ee ka pass kiye ho be");
+    }
   };
 
   return (
@@ -33,7 +80,7 @@ const AddRecord = (props) => {
             labelId="demo-simple-select-label"
             value={type}
             label="Content Type"
-            onChange={handleChange}
+            onChange={(event) => valueChangeHandler(event, "type")}
           >
             <MenuItem value={"img"}>Image</MenuItem>
             <MenuItem value={"vid"}>Video</MenuItem>
@@ -45,17 +92,20 @@ const AddRecord = (props) => {
           label="Link"
           required
           variant="outlined"
+          onChange={(event) => valueChangeHandler(event, "link")}
         />
         <TextField
           id="outlined-basic"
           label="Title"
           required
           variant="outlined"
+          onChange={(event) => valueChangeHandler(event, "title")}
         />
         <TextareaAutosize
           placeholder="Content *"
           required
           className={Styles.textarea}
+          onChange={(event) => valueChangeHandler(event, "content")}
         />
         <TextField
           id="outlined-basic"
@@ -63,20 +113,25 @@ const AddRecord = (props) => {
           required
           variant="outlined"
           placeholder="India Festival Fun"
+          onChange={(event) => valueChangeHandler(event, "tags")}
         />
         <FormControlLabel
           labelPlacement="start"
           control={
-            <Switch checked={sensitive} onChange={toggleSwitch} name="sens" />
+            <Switch
+              checked={shortData.sensitive}
+              onChange={toggleSwitch}
+              name="sens"
+            />
           }
-          label="Short contains sensitive content?"
+          label="Short contains shortData content?"
         />
       </div>
       <div className={Styles.previewCont}>
         <p className={Styles.heading}>Preview Short</p>
         <div className={Styles.shortPrev}>
           <div style={{ overflowY: "scroll", height: "430px" }}>
-            <Short prev={true} sens={sensitive} />
+            <Short prev={true} shortData={shortData} />
           </div>
           <button className={Styles.addBtn}>ADD SHORT</button>
         </div>

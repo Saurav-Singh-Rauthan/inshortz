@@ -19,7 +19,6 @@ const Scroller = (props) => {
         mousewheel
         pagination={{
           dynamicBullets: true,
-          // bulletActiveClass: Styles.activeBullet,
         }}
         modules={[Mousewheel, Pagination, EffectCoverflow]}
         className="mySwiper"

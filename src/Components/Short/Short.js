@@ -1,54 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Styles from "./Short.module.css";
 import SensitiveCover from "../SensitiveCover/SensitiveCover";
 
 const Short = (props) => {
+  const [shortState, setshortState] = useState({
+    type: null,
+    link: null,
+    title: null,
+    content: null,
+    author: null,
+    sensitive: false,
+    tags: [],
+  });
+
+  useEffect(() => {
+    setshortState({
+      type: props.shortData?.type,
+      link: props.shortData?.link,
+      title: props.shortData?.title,
+      content: props.shortData?.content,
+      author: props.shortData?.author,
+      sensitive: props.shortData?.sensitive,
+      tags: props.shortData?.tags,
+    });
+  }, [props]);
+
+  const tags = shortState.tags
+    ? shortState.tags.map((tag, index) => {
+        return (
+          <Link
+            to={`/search?tag="${tag}`}
+            key={`${tag}_${index}`}
+            className={Styles.tag}
+          >
+            {`#${tag}`}
+          </Link>
+        );
+      })
+    : null;
+
   return (
     <React.Fragment>
-      <SensitiveCover show={props.sens} />
+      <SensitiveCover show={shortState.sensitive} />
       <div className={props.prev ? Styles.contPreview : Styles.cont}>
         <div className={Styles.infot}>
           <img
-            src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80"
+            src={
+              shortState.link
+                ? shortState.link
+                : "https://via.placeholder.com/1200"
+            }
             alt="shortImage"
             className={Styles.image}
           />
         </div>
         <div className={Styles.descCont}>
           <p className={Styles.title}>
-            'Basant Panchami' is a Hindu festival celebrating Saraswati, the
-            goddess of knowledge, music and art. It is celebrated throughout the
-            India.
+            {shortState.title ? shortState.title : ""}
           </p>
           <p className={Styles.content}>
-            'Basant Panchami' is a Hindu festival celebrating Saraswati, the
-            goddess of knowledge, music and art. It is celebrated throughout the
-            India. It is celebrated every year on the fifth day (Panchami) of
-            the Magh month according to Hindu Calander. Basant Panchami marks
-            the end of the winter season. In this festival the kids are taught
-            to write their first words according to the Hindu Custom. People
-            usually wear yellow garments in this festival.
+            {shortState.content ? shortState.content : ""}
           </p>
-          <p className={Styles.author}>Author : Saurav Singh Rauthan</p>
-          <div className={Styles.tagCont}>
-            <Link to='/search?tag="hello' className={Styles.tag}>
-              #India
-            </Link>
-            <Link to='/search?tag="hello' className={Styles.tag}>
-              #Festival
-            </Link>
-            <Link to='/search?tag="hello' className={Styles.tag}>
-              #Celebrations
-            </Link>
-            <Link to='/search?tag="hello' className={Styles.tag}>
-              #Basant Panchmi
-            </Link>
-            <Link to='/search?tag="hello' className={Styles.tag}>
-              #Happy
-            </Link>
-          </div>
+          <p className={Styles.author}>
+            Author : {shortState.author ? shortState.author : ""}
+          </p>
+          <div className={Styles.tagCont}>{tags}</div>
         </div>
       </div>
     </React.Fragment>
