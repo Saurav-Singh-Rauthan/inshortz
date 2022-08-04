@@ -81,7 +81,7 @@
   text-decoration: none;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .content {
     font-size: 13px;
     margin: 0.5rem 0;
@@ -125,7 +125,7 @@
   }
 }
 
-@media (min-width: 401px) and (max-width: 576px) {
+@media (max-width: 480px) and (min-height: 765px) {
   .content {
     font-size: 14px;
     margin: 0.5rem 0;
@@ -133,6 +133,28 @@
 
   .title {
     font-size: 14px;
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .author {
+    font-size: 12px;
+    margin: 0.5rem 0;
+  }
+
+  .descCont {
+    transform: translateY(-30%);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 576px) {
+  .content {
+    font-size: 16px;
+    margin: 0.5rem 0;
+  }
+
+  .title {
+    font-size: 16px;
     margin: 0 0 0.5rem 0;
     padding-bottom: 0.5rem;
   }
