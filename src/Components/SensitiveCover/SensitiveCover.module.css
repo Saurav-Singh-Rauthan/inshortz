@@ -1,0 +1,42 @@
+.cont {
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 120;
+}
+
+.change {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.Btn {
+  bottom: -24px;
+  padding: 1rem;
+  background: #f7f8f3;
+  border: none;
+  color: #f7444e;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  border: 1px solid #f7444e;
+  z-index: 121;
+  font-family: "Poppins", sans-serif;
+  border-radius: 16px;
+}
+
+.Btn:hover {
+  color: #f7f8f3;
+  background: #f7444e;
+}
