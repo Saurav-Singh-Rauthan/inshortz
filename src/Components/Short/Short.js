@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Styles from "./Short.module.css";
 import SensitiveCover from "../SensitiveCover/SensitiveCover";
 import SkeletonImg from "../Skeletons/SkeletonImg";
-import Skeleton from "@mui/material/Skeleton";
 
 const Short = (props) => {
   const [shortState, setshortState] = useState({
@@ -22,7 +21,7 @@ const Short = (props) => {
   useEffect(() => {
     setshortState({
       type: props.shortData?.type,
-      link: props.shortData?.link,
+      link: fetchUrlHandler(props.shortData?.link ? props.shortData?.link : ""),
       title: props.shortData?.title,
       content: props.shortData?.content,
       author: props.shortData?.author,
@@ -33,6 +32,19 @@ const Short = (props) => {
 
   const changeStateHandler = () => {
     setloading(false);
+  };
+
+  const fetchUrlHandler = (link) => {
+    const reg =
+      /^(https?:)?(\/\/)?((www\.|m\.)?youtube(-nocookie)?\.com\/((watch)?\?(feature=\w*&)?vi?=|embed\/|vi?\/|e\/)|youtu.be\/)([\w\-]{10,20})/i;
+    const match = link.match(reg);
+    if (match) {
+      const ytlink = `https://www.youtube.com/embed/${match[9]}?rel=0&enablejsapi=1`;
+      console.log(ytlink);
+      return ytlink;
+    } else {
+      return link;
+    }
   };
 
   const tags = shortState.tags
@@ -49,13 +61,12 @@ const Short = (props) => {
       })
     : null;
 
-
   return (
     <React.Fragment>
       <SensitiveCover show={shortState.sensitive} />
       <div className={props.prev ? Styles.contPreview : Styles.cont}>
         <div className={Styles.infot}>
-          {
+          {shortState.type === "img" ? (
             <SkeletonImg
               link={
                 shortState.link
@@ -65,7 +76,17 @@ const Short = (props) => {
               loaded={changeStateHandler}
               loading={loading}
             />
-          }
+          ) : (
+            <iframe
+              src={shortState.link ? shortState.link : null}
+              width={"100%"}
+              height={"100%"}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          )}
         </div>
         <div className={Styles.descCont}>
           <p className={Styles.title}>

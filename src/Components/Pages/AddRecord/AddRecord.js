@@ -14,7 +14,7 @@ import Short from "../../Short/Short";
 const AddRecord = (props) => {
   const [type, settype] = useState("img");
   const [shortData, setshortData] = useState({
-    type: null,
+    type: "img",
     link: null,
     title: null,
     content: null,
@@ -78,7 +78,7 @@ const AddRecord = (props) => {
           <InputLabel id="demo-simple-select-label">Content Type</InputLabel>
           <Select
             labelId="demo-simple-select-label"
-            value={type}
+            value={shortData.type}
             label="Content Type"
             onChange={(event) => valueChangeHandler(event, "type")}
           >
