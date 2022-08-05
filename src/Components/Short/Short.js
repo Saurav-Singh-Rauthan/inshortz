@@ -41,7 +41,6 @@ const Short = (props) => {
     const match = link.match(reg);
     if (match) {
       const ytlink = `https://www.youtube.com/embed/${match[9]}?rel=0&enablejsapi=1`;
-      console.log(ytlink);
       return ytlink;
     } else {
       return link;
@@ -79,7 +78,11 @@ const Short = (props) => {
             />
           ) : (
             <SkeletonVid
-              link={shortState.link ? shortState.link : null}
+              link={
+                shortState.link
+                  ? shortState.link
+                  : "https://www.youtube.com/embed/BBJa32lCaaY??rel=0&enablejsapi=1"
+              }
               loaded={changeStateHandler}
               loading={loading}
             />
