@@ -1,7 +1,6 @@
 import React from "react";
 
 import Skeleton from "@mui/material/Skeleton";
-import Styles from "./Skeleton.module.css";
 
 const SkeletonVid = (props) => {
   return (
@@ -16,6 +15,7 @@ const SkeletonVid = (props) => {
       ) : null}
       <iframe
         src={props.link ? props.link : null}
+        style={{ display: props.loading ? "none" : "block" }}
         width={"100%"}
         height={"100%"}
         title="YouTube video player"

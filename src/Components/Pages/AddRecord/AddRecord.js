@@ -43,19 +43,19 @@ const AddRecord = (props) => {
       case "title":
         setshortData({
           ...shortData,
-          title: event.target.value,
+          title: event.target.value.trim(),
         });
         break;
       case "content":
         setshortData({
           ...shortData,
-          content: event.target.value,
+          content: event.target.value.trim(),
         });
         break;
       case "link":
         setshortData({
           ...shortData,
-          link: event.target.value,
+          link: event.target.value.trim(),
         });
         break;
       case "tags":
