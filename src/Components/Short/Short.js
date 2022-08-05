@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import Styles from "./Short.module.css";
 import SensitiveCover from "../SensitiveCover/SensitiveCover";
+import SkeletonImg from "../Skeletons/SkeletonImg";
+import Skeleton from "@mui/material/Skeleton";
 
 const Short = (props) => {
   const [shortState, setshortState] = useState({
@@ -15,6 +17,8 @@ const Short = (props) => {
     tags: [],
   });
 
+  const [loading, setloading] = useState(true);
+
   useEffect(() => {
     setshortState({
       type: props.shortData?.type,
@@ -26,6 +30,10 @@ const Short = (props) => {
       tags: props.shortData?.tags,
     });
   }, [props]);
+
+  const changeStateHandler = () => {
+    setloading(false);
+  };
 
   const tags = shortState.tags
     ? shortState.tags.map((tag, index) => {
@@ -41,20 +49,23 @@ const Short = (props) => {
       })
     : null;
 
+
   return (
     <React.Fragment>
       <SensitiveCover show={shortState.sensitive} />
       <div className={props.prev ? Styles.contPreview : Styles.cont}>
         <div className={Styles.infot}>
-          <img
-            src={
-              shortState.link
-                ? shortState.link
-                : "https://via.placeholder.com/1200"
-            }
-            alt="shortImage"
-            className={Styles.image}
-          />
+          {
+            <SkeletonImg
+              link={
+                shortState.link
+                  ? shortState.link
+                  : "https://via.placeholder.com/1200"
+              }
+              loaded={changeStateHandler}
+              loading={loading}
+            />
+          }
         </div>
         <div className={Styles.descCont}>
           <p className={Styles.title}>

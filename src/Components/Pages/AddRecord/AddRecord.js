@@ -124,13 +124,19 @@ const AddRecord = (props) => {
               name="sens"
             />
           }
-          label="Short contains shortData content?"
+          label="Short contains sensitive content?"
         />
       </div>
       <div className={Styles.previewCont}>
         <p className={Styles.heading}>Preview Short</p>
         <div className={Styles.shortPrev}>
-          <div style={{ overflowY: "scroll", height: "430px" }}>
+          <div
+            style={{
+              overflowY: "scroll",
+              height: "430px",
+              background: "#f7f8f3",
+            }}
+          >
             <Short prev={true} shortData={shortData} />
           </div>
           <button className={Styles.addBtn}>ADD SHORT</button>
