@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Styles from "./Short.module.css";
 import SensitiveCover from "../SensitiveCover/SensitiveCover";
 import SkeletonImg from "../Skeletons/SkeletonImg";
+import SkeletonVid from "../Skeletons/SkeletonVid";
 
 const Short = (props) => {
   const [shortState, setshortState] = useState({
@@ -77,15 +78,11 @@ const Short = (props) => {
               loading={loading}
             />
           ) : (
-            <iframe
-              src={shortState.link ? shortState.link : null}
-              width={"100%"}
-              height={"100%"}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <SkeletonVid
+              link={shortState.link ? shortState.link : null}
+              loaded={changeStateHandler}
+              loading={loading}
+            />
           )}
         </div>
         <div className={Styles.descCont}>
