@@ -6,6 +6,7 @@
   color: #f7f8f3;
   align-items: center;
   justify-content: space-between;
+  z-index: 200;
 }
 
 .cont p {

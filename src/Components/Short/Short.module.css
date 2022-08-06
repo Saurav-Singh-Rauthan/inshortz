@@ -20,6 +20,42 @@
   overflow: hidden;
   width: 100%;
   z-index: 10;
+  cursor: pointer;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100% !important;
+  z-index: 130;
+  overflow: visible;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.closeFullscreen {
+  padding: 0.5rem;
+  width: 50px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #f7f8f3;
+  background: #f7444e;
+  position: fixed;
+  border: 1px solid #f7f8f3;
+  top: 32px;
+  right: 32px;
+  cursor: pointer;
+  z-index: 150;
+  border-radius: 4px;
+  transition: all 0.5s ease-out;
+}
+
+.closeFullscreen:hover {
+  color: #f7444e;
+  background: #f7f8f3;
+  border: 1px solid #f7444e;
 }
 
 .descCont {

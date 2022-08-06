@@ -12,7 +12,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Short from "../../Short/Short";
 
 const AddRecord = (props) => {
-  const [type, settype] = useState("img");
   const [shortData, setshortData] = useState({
     type: "img",
     link: null,

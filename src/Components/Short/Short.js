@@ -18,6 +18,7 @@ const Short = (props) => {
   });
 
   const [loading, setloading] = useState(true);
+  const [fullscreen, setfullscreen] = useState(false);
 
   useEffect(() => {
     setshortState({
@@ -40,10 +41,18 @@ const Short = (props) => {
       /^(https?:)?(\/\/)?((www\.|m\.)?youtube(-nocookie)?\.com\/((watch)?\?(feature=\w*&)?vi?=|embed\/|vi?\/|e\/)|youtu.be\/)([\w\-]{10,20})/i;
     const match = link.match(reg);
     if (match) {
-      const ytlink = `https://www.youtube.com/embed/${match[9]}?rel=0&enablejsapi=1`;
+      const ytlink = `https://www.youtube.com/embed/${match[9]}?rel=0&enablejsapi=1&autoplay=1&showinfo=0&autohide=1`;
       return ytlink;
     } else {
       return link;
+    }
+  };
+
+  const fullscreenHandler = (type) => {
+    if (type === "btn") {
+      setfullscreen(false);
+    } else {
+      setfullscreen(true);
     }
   };
 
@@ -65,7 +74,19 @@ const Short = (props) => {
     <React.Fragment>
       <SensitiveCover show={shortState.sensitive} />
       <div className={props.prev ? Styles.contPreview : Styles.cont}>
-        <div className={Styles.infot}>
+        <button
+          className={Styles.closeFullscreen}
+          style={{ display: fullscreen ? "block" : "none" }}
+          onClick={() => fullscreenHandler("btn")}
+        >
+          X
+        </button>
+        <div
+          className={[Styles.infot, fullscreen ? Styles.fullscreen : ""].join(
+            " "
+          )}
+          onClick={() => fullscreenHandler("div")}
+        >
           {shortState.type === "img" ? (
             <SkeletonImg
               link={
@@ -81,7 +102,7 @@ const Short = (props) => {
               link={
                 shortState.link
                   ? shortState.link
-                  : "https://www.youtube.com/embed/BBJa32lCaaY??rel=0&enablejsapi=1"
+                  : "https://www.youtube.com/embed/BBJa32lCaaY?rel=0&enablejsapi=1&autoplay=1&showinfo=0&autohide=1"
               }
               loaded={changeStateHandler}
               loading={loading}
