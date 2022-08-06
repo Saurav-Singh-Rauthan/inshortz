@@ -1,0 +1,124 @@
+.container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 100%;
+  width: 100%;
+  height: fit-content;
+  overflow-y: scroll;
+  margin: auto;
+  padding: 2rem;
+}
+
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  width: 40%;
+  margin: 2rem auto;
+}
+
+.tabCont {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.tabCont button {
+  margin: 0 1rem;
+}
+
+.authContainer button {
+  padding: 1rem;
+  line-height: 36px;
+  background: #f7444e;
+  color: #f7f8f3;
+  font-size: 1rem;
+  font-weight: bolder;
+  transition: all 0.3s ease-out;
+  border: none;
+}
+
+.authContainer button:hover {
+  background-color: #f7f8f3;
+  color: #f7444e;
+  border-bottom: 2px solid #f7444e;
+  cursor: pointer;
+}
+
+.authContainer button:disabled {
+  cursor: not-allowed;
+  color: white;
+  background-color: #ccc;
+  border: none;
+}
+
+.forgotPass,
+.forgotPassDisabled {
+  color: #f7444e;
+  margin: 0;
+  text-align: right;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1rem;
+}
+
+.forgotPassDisabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.changeCont {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto 2rem auto;
+}
+
+.authErr {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media (max-width: 460px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .authContainer {
+    width: 90%;
+  }
+
+  .tabCont {
+    width: 90%;
+  }
+
+  .changeCont {
+    width: 90%;
+  }
+
+  .authContainer button {
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 461px) and (max-width: 920px) {
+  .authContainer {
+    width: 70%;
+  }
+
+  .tabCont {
+    width: 70%;
+  }
+
+  .changeCont {
+    width: 70%;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}

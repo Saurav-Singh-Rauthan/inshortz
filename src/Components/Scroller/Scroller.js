@@ -25,7 +25,7 @@ const Scroller = (props) => {
         style={{ height: "inherit" }}
       >
         <SwiperSlide>
-          <Short />
+          <Short shortData={{ type: "img" }} />
         </SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>

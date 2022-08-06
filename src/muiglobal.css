@@ -5,3 +5,31 @@
 .MuiSwitch-colorPrimary.Mui-checked {
   color: #f7444e !important;
 }
+
+.Mui-selected {
+  color: #f7444e !important;
+  background-color: #f7f8f3 !important;
+}
+
+.MuiTabs-indicator {
+  background-color: #f7444e !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #002c3e !important;
+}
+
+.MuiInputLabel-root {
+  color: #16123f !important;
+  font-weight: bolder !important;
+}
+
+.Mui-error .MuiOutlinedInput-notchedOutline {
+  border-color: red !important;
+}
+
+@media (min-width: 200px) and (max-width: 1100px) {
+  .MuiTabPanel-root {
+    padding: 0.5rem !important;
+  }
+}
