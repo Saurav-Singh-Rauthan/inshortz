@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-// import * as actions from "../../Store/actions/index";
+import * as actions from "../../Store/actions/index";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 import Validate from "../../Validator/Validator";
@@ -54,18 +54,18 @@ const Auth = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  // useEffect(() => {
-  //   setauthErr({
-  //     err: props.error,
-  //     errMsg: props.errorMsg,
-  //   });
-  // }, [props.error]);
+  useEffect(() => {
+    setauthErr({
+      err: props.error,
+      errMsg: props.errorMsg,
+    });
+  }, [props.error]);
 
-  // useEffect(() => {
-  //   if (props.redirect !== null) {
-  //     navigate(props.redirect);
-  //   }
-  // }, [props.redirect]);
+  useEffect(() => {
+    if (props.redirect !== null) {
+      navigate(props.redirect);
+    }
+  }, [props.redirect]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -405,16 +405,9 @@ const Auth = (props) => {
         <TabContext value={value}>
           <Box
             className={Styles.tabCont}
-            sx={{
-              borderBottom: 1,
-              borderColor: "divider",
-            }}
+            sx={{ borderBottom: 1, borderColor: "divider" }}
           >
-            <TabList
-              onChange={handleChange}
-              centered
-              
-            >
+            <TabList onChange={handleChange} centered>
               <Tab label="Sign In" value="1" />
               <Tab label="Sign Up" value="2" />
             </TabList>
@@ -427,23 +420,22 @@ const Auth = (props) => {
   );
 };
 
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     token: state.auth.token,
-//     error: state.auth.error,
-//     errorMsg: state.auth.errorMsg,
-//     loading: state.auth.loading,
-//     redirect: state.auth.redirect,
-//   };
-// };
+const mapStateToProps = (state, ownProps) => {
+  return {
+    token: state.auth.token,
+    error: state.auth.error,
+    errorMsg: state.auth.errorMsg,
+    loading: state.auth.loading,
+    redirect: state.auth.redirect,
+  };
+};
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     authenticate: (email, password, username, type) => {
-//       dispatch(actions.authenticate(email, password, username, type));
-//     },
-//   };
-// };
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    authenticate: (email, password, username, type) => {
+      dispatch(actions.authenticate(email, password, username, type));
+    },
+  };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Auth);
-export default Auth;
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
