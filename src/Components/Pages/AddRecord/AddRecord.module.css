@@ -31,11 +31,11 @@
   padding: 16px 14px;
   font-size: 1rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border: 1px solid #ccc;
+  border: 1px solid #002c3e;
 }
 
 .textarea:focus {
-  outline-color: rgb(25, 118, 210) !important;
+  outline-color: #002c3e !important;
   outline-width: 1px;
 }
 

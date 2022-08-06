@@ -9,7 +9,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 // import * as actions from "../../Store/actions/index";
-// import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 import Validate from "../../Validator/Validator";
 import Styles from "./Auth.module.css";
@@ -156,18 +156,18 @@ const Auth = (props) => {
     }
   };
 
-  // const resetPassHandler = (email) => {
-  //   const auth = getAuth();
-  //   sendPasswordResetEmail(auth, email)
-  //     .then(() => {
-  //       alert.open("success", "Password reset email sent!");
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       alert.open("error", "Password mail not sent!");
-  //     });
-  // };
+  const resetPassHandler = (email) => {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert.open("success", "Password reset email sent!");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert.open("error", "Password mail not sent!");
+      });
+  };
 
   const signInDiv = (
     <div className={Styles.authContainer}>
@@ -210,7 +210,7 @@ const Auth = (props) => {
         onChange={(event) => inputChangeHandler(event, "signInPass")}
       />
       <p
-        // onClick={() => resetPassHandler(userSignInCred.email)}
+        onClick={() => resetPassHandler(userSignInCred.email)}
         className={
           Validate(userSignInCred.email, "isMail|isRequired").isValid
             ? Styles.forgotPass
