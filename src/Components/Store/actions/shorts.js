@@ -14,6 +14,19 @@ const create_failed = (errorMsg) => {
   };
 };
 
+const fetch_success = (shorts) => {
+  return {
+    type: actions.SHORT_SUCCESS,
+    shorts: shorts,
+  };
+};
+
+const fetch_failed = () => {
+  return {
+    type: actions.SHORT_FAILED,
+  };
+};
+
 export const create_done = () => {
   return {
     type: actions.SHORT_DONE,
@@ -51,6 +64,21 @@ export const create_short = (
       .catch((err) => {
         console.log(err);
         dispatch(create_failed(err.msg));
+      });
+  };
+};
+
+export const fetch_shorts = () => {
+  return (dispatch) => {
+    axiosI
+      .get(`/shorts.json`)
+      .then((res) => {
+        console.log(res);
+        dispatch(fetch_success(res.data));
+      })
+      .catch((err) => {
+        dispatch(fetch_failed());
+        console.log(err);
       });
   };
 };
