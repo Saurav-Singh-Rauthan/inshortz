@@ -41,7 +41,7 @@ const Short = (props) => {
       /^(https?:)?(\/\/)?((www\.|m\.)?youtube(-nocookie)?\.com\/((watch)?\?(feature=\w*&)?vi?=|embed\/|vi?\/|e\/)|youtu.be\/)([\w\-]{10,20})/i;
     const match = link.match(reg);
     if (match) {
-      const ytlink = `https://www.youtube.com/embed/${match[9]}?rel=0&enablejsapi=1&autoplay=1&showinfo=0&autohide=1`;
+      const ytlink = `https://www.youtube.com/embed/${match[9]}?rel=0&enablejsapi=1&showinfo=0&autohide=1`;
       return ytlink;
     } else {
       return link;
@@ -96,6 +96,7 @@ const Short = (props) => {
               }
               loaded={changeStateHandler}
               loading={loading}
+              fullscreen={fullscreen}
             />
           ) : (
             <SkeletonVid

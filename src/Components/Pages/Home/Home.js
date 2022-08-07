@@ -7,6 +7,7 @@ import * as actions from "../../Store/actions/index";
 const Home = (props) => {
   useEffect(() => {
     props.create_done();
+    props.fetch_shorts();
   });
 
   return (
@@ -20,6 +21,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     create_done: () => {
       dispatch(actions.create_done());
+    },
+    fetch_shorts: () => {
+      dispatch(actions.fetch_shorts());
     },
   };
 };

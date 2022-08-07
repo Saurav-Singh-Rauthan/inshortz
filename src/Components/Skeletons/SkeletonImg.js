@@ -17,7 +17,7 @@ const SkImg = (props) => {
       <img
         src={props.link}
         alt="shortImage"
-        className={Styles.image}
+        className={props.fullscreen ? Styles.imgFullScreen : Styles.image}
         onLoad={() => {
           props.loaded();
         }}

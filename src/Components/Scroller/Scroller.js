@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Mousewheel, EffectCoverflow } from "swiper";
+import { connect } from "react-redux";
 
 import "swiper/css/bundle";
 import Styles from "./Scroller.module.css";
@@ -8,6 +9,22 @@ import Short from "../Short/Short";
 
 const Scroller = (props) => {
   SwiperCore.use([Pagination]);
+
+  let shorts = [];
+  if (props.shorts) {
+    const ascShorts = Object.keys(props.shorts).map((short) => {
+      let data = {
+        ...props.shorts[short],
+        shortKey: short,
+      };
+
+      return data;
+    });
+
+    for (let i = ascShorts.length - 1; i >= 0; i--) {
+      shorts.push(ascShorts[i]);
+    }
+  }
 
   return (
     <div className={Styles.comp}>
@@ -24,20 +41,26 @@ const Scroller = (props) => {
         className="mySwiper"
         style={{ height: "inherit" }}
       >
-        <SwiperSlide>
-          <Short shortData={{ type: "img" }} />
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {shorts.map((short) => {
+          return (
+            <SwiperSlide
+              key={short.shortKey}
+              onMouseLeave={() => console.log("gya")}
+              
+            >
+              <Short shortData={short} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
 };
 
-export default Scroller;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    shorts: state.shorts.shorts,
+  };
+};
+
+export default connect(mapStateToProps)(Scroller);

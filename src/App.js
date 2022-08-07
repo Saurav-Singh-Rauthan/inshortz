@@ -30,9 +30,6 @@ const App = (props) => {
 
   useEffect(() => {
     props.auto_login();
-    if (props.isAuthenticated) {
-      props.fetch_shorts();
-    }
   });
 
   return (
@@ -65,9 +62,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     auto_login: () => {
       dispatch(actions.auto_login());
-    },
-    fetch_shorts: () => {
-      dispatch(actions.fetch_shorts());
     },
   };
 };
