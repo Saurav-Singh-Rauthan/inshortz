@@ -6,11 +6,6 @@
   align-items: center;
 }
 
-.img {
-  height: 50%;
-}
-
-
 .cont a {
   text-decoration: none;
   color: #f7444e;
@@ -21,4 +16,10 @@
 .cont a:hover {
   background: #f7444e;
   color: #f7f8f3;
+}
+
+@media (max-width: 756px) {
+  .img {
+    height: 25%;
+  }
 }
