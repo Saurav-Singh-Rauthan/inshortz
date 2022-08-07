@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Mousewheel, EffectCoverflow } from "swiper";
 import { connect } from "react-redux";
@@ -8,7 +8,17 @@ import Styles from "./Scroller.module.css";
 import Short from "../Short/Short";
 
 const Scroller = (props) => {
-  SwiperCore.use([Pagination]);
+  const stopVideos = function () {
+    let videos = document.querySelectorAll("iframe, video");
+    Array.prototype.forEach.call(videos, function (video) {
+      if (video.tagName.toLowerCase() === "video") {
+        video.pause();
+      } else {
+        var src = video.src;
+        video.src = src;
+      }
+    });
+  };
 
   let shorts = [];
   if (props.shorts) {
@@ -26,6 +36,7 @@ const Scroller = (props) => {
     }
   }
 
+  SwiperCore.use([Pagination]);
   return (
     <div className={Styles.comp}>
       <Swiper
@@ -40,14 +51,11 @@ const Scroller = (props) => {
         modules={[Mousewheel, Pagination, EffectCoverflow]}
         className="mySwiper"
         style={{ height: "inherit" }}
+        onSlideChange={() => stopVideos()}
       >
         {shorts.map((short) => {
           return (
-            <SwiperSlide
-              key={short.shortKey}
-              onMouseLeave={() => console.log("gya")}
-              
-            >
+            <SwiperSlide key={short.shortKey}>
               <Short shortData={short} />
             </SwiperSlide>
           );
