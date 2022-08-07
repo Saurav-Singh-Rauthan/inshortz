@@ -3,6 +3,7 @@ const regExObj = {
   alnum: /^[a-z0-9]+$/i,
   string: /^[a-zA-Z\s]*$/,
   number: /^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$/,
+  link: /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
 };
 
 const errorMessages = {
@@ -19,6 +20,7 @@ const errorMessages = {
   notmore: "Value is not more than the compared value",
   notmaxWords: "Value entered is exceeding the maximum limit",
   notminWords: "Value entered is not exceeding the minimum limit",
+  notLink: "Value entered is not a valid link",
 };
 
 const minVal = (value, param = 1) => {
@@ -59,6 +61,10 @@ const minWords = (value, param = 100) => {
     .split(/\s+/)
     .filter((word) => word !== "");
   return value.length >= param ? true : false;
+};
+
+const isLink = (value) => {
+  return value[0].trim().toString().match(regExObj.link) ? true : false;
 };
 
 const isMail = (value) => {
@@ -158,6 +164,10 @@ const Validate = (value = "", type = "") => {
       case "isMail":
         validity = validity && isMail(value);
         errors.push(isMail(value) ? "" : errorMessages.notmail);
+        break;
+      case "isLink":
+        validity = validity && isLink(value);
+        errors.push(isLink(value) ? "" : errorMessages.notLink);
         break;
       case "isAlnum":
         validity = validity && isAlnum(value);

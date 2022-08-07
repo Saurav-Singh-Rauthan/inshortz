@@ -6,11 +6,13 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import authReducer from "./Components/Store/reducers/auth";
+import shortsReducer from "./Components/Store/reducers/shorts";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  shorts: shortsReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;

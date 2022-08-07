@@ -102,7 +102,7 @@ const Short = (props) => {
               link={
                 shortState.link
                   ? shortState.link
-                  : "https://www.youtube.com/embed/BBJa32lCaaY?rel=0&enablejsapi=1&autoplay=1&showinfo=0&autohide=1"
+                  : "https://www.youtube.com/embed/BBJa32lCaaY?rel=0&enablejsapi=1&showinfo=0&autohide=1"
               }
               loaded={changeStateHandler}
               loading={loading}

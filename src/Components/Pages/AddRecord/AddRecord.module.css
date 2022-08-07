@@ -79,6 +79,13 @@
   background: #f7f8f3;
 }
 
+.addBtn:disabled {
+  color: #f7f8f3 !important;
+  background: #ccc !important;
+  cursor: not-allowed !important;
+  border: none;
+}
+
 .helper {
   color: rgba(0, 0, 0, 0.6);
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
