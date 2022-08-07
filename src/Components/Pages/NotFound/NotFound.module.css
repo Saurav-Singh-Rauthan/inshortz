@@ -13,6 +13,10 @@
   transition: all 0.5s ease-out;
 }
 
+.img {
+  height: 50%;
+}
+
 .cont a:hover {
   background: #f7444e;
   color: #f7f8f3;
