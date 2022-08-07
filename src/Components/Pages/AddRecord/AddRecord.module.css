@@ -26,18 +26,23 @@
 .textarea {
   min-width: 100%;
   min-height: 80px;
-  height: 80px;
+  max-height: 130px;
   max-width: 100%;
   border-radius: 4px;
   padding: 16px 14px;
   font-size: 1rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   border: 1px solid #002c3e;
+  overflow-y: scroll !important;
 }
 
-.textarea:focus {
-  outline-color: #002c3e !important;
-  outline-width: 1px;
+.error {
+  outline-color: #f7444e !important;
+  border: 1px solid #f7444e !important;
+}
+
+.errorHelper {
+  color: #f7444e !important;
 }
 
 .previewCont {
