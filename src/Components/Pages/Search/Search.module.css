@@ -38,10 +38,15 @@
 
 .title {
   font-weight: bold;
-
 }
 
 .author {
   font-size: 14px;
   color: rgb(131, 130, 130);
+}
+
+@media (max-width: 756px) {
+  .cont {
+    padding: 1rem;
+  }
 }

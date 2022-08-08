@@ -19,14 +19,14 @@ const Search = (props) => {
   const [retData, setretData] = useState([]);
 
   useEffect(() => {
-    searchHandler(searchVal);
-  }, [searchVal]);
+    if (props.shorts) {
+      searchHandler(searchVal);
+    }
+  }, [searchVal, props.shorts]);
 
   useEffect(() => {
     const tag = searchParams.get("tag");
-    if (tag) {
-      setsearchVal(tag);
-    }
+    setsearchVal(tag);
   }, []);
 
   const handleChange = (event, type) => {
@@ -48,7 +48,7 @@ const Search = (props) => {
     if (searchparam === 1) {
       setretData(
         loadedShorts?.filter((short) => {
-          return short.tags.includes(value);
+          return short.tags.includes(searchVal);
         })
       );
     } else {
