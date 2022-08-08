@@ -153,6 +153,7 @@ const AddRecord = (props) => {
       shortData.link,
       shortData.title,
       shortData.content,
+      localStorage.getItem("username"),
       props.email,
       shortData.sensitive,
       shortData.tags,
@@ -350,6 +351,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       title,
       content,
       author,
+      authorEmail,
       sensitive,
       tags,
       token
@@ -361,6 +363,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           title,
           content,
           author,
+          authorEmail,
           sensitive,
           tags,
           token

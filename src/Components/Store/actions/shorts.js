@@ -39,6 +39,7 @@ export const create_short = (
   title,
   content,
   author,
+  authorEmail,
   sensitive,
   tags,
   token
@@ -50,6 +51,7 @@ export const create_short = (
       title,
       content,
       author,
+      authorEmail,
       sensitive,
       tags,
       createdOn: new Date().getTime(),

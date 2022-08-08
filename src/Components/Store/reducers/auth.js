@@ -8,6 +8,7 @@ const initialState = {
   redirect: null,
   error: null,
   errorMsg: null,
+  username: null,
 };
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,13 +19,13 @@ const authReducer = (state = initialState, action) => {
       };
     case actionTypes.AUTH_SUCCESS:
       return {
-        ...state,
         loading: false,
         errMsg: null,
         error: null,
         email: action.email,
         token: action.token,
         id: action.id,
+        username: action.username,
       };
     case actionTypes.AUTH_FAILED:
       return {
@@ -35,6 +36,7 @@ const authReducer = (state = initialState, action) => {
         error: action.error,
         errorMsg: action.errorMsg,
         redirect: null,
+        username: null,
       };
     case actionTypes.AUTH_DONE:
       return {
@@ -50,6 +52,7 @@ const authReducer = (state = initialState, action) => {
         email: null,
         loading: null,
         id: null,
+        username: null,
         error: null,
         errorMsg: null,
         redirect: null,

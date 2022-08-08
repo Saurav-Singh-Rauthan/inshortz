@@ -23,11 +23,11 @@ const Search = (props) => {
   }, [searchVal]);
 
   useEffect(() => {
-    const tag = searchParams.get("tag")
-    if(tag){
-      setsearchVal(tag)
+    const tag = searchParams.get("tag");
+    if (tag) {
+      setsearchVal(tag);
     }
-  }, [])
+  }, []);
 
   const handleChange = (event, type) => {
     if (type === "search") {
@@ -69,7 +69,10 @@ const Search = (props) => {
             className={Styles.searchResult}
             key={short.shortKey}
           >
-            {short.title}
+            <p className={Styles.title}>{short.title}</p>
+            <span className={Styles.author}>
+              By: {short.author}({short.authorEmail})
+            </span>
           </Link>
         );
       })

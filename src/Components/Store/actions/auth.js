@@ -40,12 +40,13 @@ export const auth_start = () => {
   };
 };
 
-export const auth = (email, token, id) => {
+export const auth = (email, token, id, username) => {
   return {
     type: actionType.AUTH_SUCCESS,
     token: token,
     email: email,
     id: id,
+    username: username,
   };
 };
 
@@ -77,10 +78,11 @@ export const authenticate = (email, password, username, type) => {
         returnSecureToken: true,
       })
       .then((res) => {
-        dispatch(auth(res.data.email, res.data.idToken, res.data.localId));
-        setTimeout(() => {
-          dispatch(auth_done());
-        }, 2000);
+        const data = {
+          email: res.data.email,
+          idToken: res.data.idToken,
+          localId: res.data.localId,
+        };
 
         localStorage.setItem("id", res.data.localId);
         localStorage.setItem("token", res.data.idToken);
@@ -104,6 +106,28 @@ export const authenticate = (email, password, username, type) => {
             })
             .catch((err) => {
               console.log(err);
+            });
+        } else {
+          axiosI
+            .get(
+              `https://inshortz-8110d-default-rtdb.firebaseio.com/users.json?auth=${res.data.idToken}&orderBy="email"&equalTo="${email}"`
+            )
+            .then((res) => {
+              localStorage.setItem(
+                "username",
+                res.data[Object.keys(res.data)[0]].username
+              );
+              dispatch(
+                auth(
+                  data.email,
+                  data.idToken,
+                  data.localId,
+                  res.data[Object.keys(res.data)[0]].username
+                )
+              );
+              setTimeout(() => {
+                dispatch(auth_done());
+              }, 2000);
             });
         }
       })
@@ -139,8 +163,9 @@ export const auto_login = () => {
       const email = localStorage.getItem("email");
       const token = localStorage.getItem("token");
       const id = localStorage.getItem("id");
+      const username = localStorage.getItem("username");
 
-      dispatch(auth(email, token, id));
+      dispatch(auth(email, token, id, username));
     } else {
       dispatch(logout());
     }
