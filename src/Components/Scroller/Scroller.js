@@ -53,13 +53,19 @@ const Scroller = (props) => {
         style={{ height: "inherit" }}
         onSlideChange={() => stopVideos()}
       >
-        {shorts.map((short) => {
-          return (
-            <SwiperSlide key={short.shortKey}>
-              <Short shortData={short} />
-            </SwiperSlide>
-          );
-        })}
+        {props.type !== "view" ? (
+          shorts.map((short) => {
+            return (
+              <SwiperSlide key={short.shortKey}>
+                <Short shortData={short} />
+              </SwiperSlide>
+            );
+          })
+        ) : (
+          <SwiperSlide>
+            <Short shortData={props.shortData} />
+          </SwiperSlide>
+        )}
       </Swiper>
     </div>
   );

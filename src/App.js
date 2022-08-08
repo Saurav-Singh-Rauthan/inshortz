@@ -12,6 +12,8 @@ import AddRecord from "./Components/Pages/AddRecord/AddRecord";
 import NotFound from "./Components/Pages/NotFound/Notfound";
 import Auth from "./Components/Pages/Auth/Auth";
 import Account from "./Components/Pages/Account/Account";
+import Search from "./Components/Pages/Search/Search";
+import Viewer from "./Components/Pages/Viewer/Viewer";
 import Navbar from "./Components/Navbar/Navbar";
 
 const App = (props) => {
@@ -30,6 +32,7 @@ const App = (props) => {
 
   useEffect(() => {
     props.auto_login();
+    props.fetch_shorts();
   });
 
   return (
@@ -38,6 +41,8 @@ const App = (props) => {
         <Routes>
           <Route path="/add-short" element={<AddRecord />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/search/:shortID" element={<Viewer />} />
+          <Route path="/search" element={<Search />} />
           <Route
             path="/account"
             element={props.isAuthenticated ? <Account /> : <Auth />}
@@ -62,6 +67,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     auto_login: () => {
       dispatch(actions.auto_login());
+    },
+    fetch_shorts: () => {
+      dispatch(actions.fetch_shorts());
     },
   };
 };

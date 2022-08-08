@@ -36,6 +36,10 @@
   overflow-y: scroll !important;
 }
 
+.textarea:focus {
+  outline: #002c3e;
+}
+
 .error {
   outline-color: #f7444e !important;
   border: 1px solid #f7444e !important;
