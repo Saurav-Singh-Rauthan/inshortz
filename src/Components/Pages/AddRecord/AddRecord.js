@@ -15,6 +15,7 @@ import Short from "../../Short/Short";
 import Validator from "../../Validator/Validator";
 import Alert from "../../Alert/Alert";
 import * as actions from "../../Store/actions/index";
+import Cover from "../../Cover/Cover";
 
 const AddRecord = (props) => {
   let navigate = useNavigate();
@@ -24,7 +25,8 @@ const AddRecord = (props) => {
     link: null,
     title: null,
     content: null,
-    author: props.email,
+    author: localStorage.getItem("username"),
+    authorEmail: props.email,
     sensitive: false,
     tags: [],
   });
@@ -45,7 +47,7 @@ const AddRecord = (props) => {
   useEffect(() => {
     setshortData({
       ...shortData,
-      author: props.email,
+      author: localStorage.getItem("username"),
     });
 
     if (props.created === true) {
@@ -325,6 +327,7 @@ const AddRecord = (props) => {
 
   return (
     <React.Fragment>
+      <Cover />
       <Alert type={alert.type} open={alert.open} msg={alert.msg} />
       <div className={Styles.cont}>
         {shortContent}

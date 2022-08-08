@@ -27,6 +27,7 @@ const Short = (props) => {
       title: props.shortData?.title,
       content: props.shortData?.content,
       author: props.shortData?.author,
+      authorEmail: props.shortData?.authorEmail,
       sensitive: props.shortData?.sensitive,
       tags: props.shortData?.tags,
     });
