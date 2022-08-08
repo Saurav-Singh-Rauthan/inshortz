@@ -60,7 +60,7 @@ const Short = (props) => {
     ? shortState.tags.map((tag, index) => {
         return (
           <Link
-            to={`/search?tag="${tag}`}
+            to={`/search?tag=${tag}`}
             key={`${tag}_${index}`}
             className={Styles.tag}
           >

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Styles from "./Search.module.css";
@@ -12,6 +12,8 @@ import Box from "@mui/material/Box";
 import Select from "@mui/material/Select";
 
 const Search = (props) => {
+  let [searchParams, setSearchParams] = useSearchParams();
+
   const [searchVal, setsearchVal] = useState("");
   const [searchparam, setsearchparam] = useState(1);
   const [retData, setretData] = useState([]);
@@ -19,6 +21,13 @@ const Search = (props) => {
   useEffect(() => {
     searchHandler(searchVal);
   }, [searchVal]);
+
+  useEffect(() => {
+    const tag = searchParams.get("tag")
+    if(tag){
+      setsearchVal(tag)
+    }
+  }, [])
 
   const handleChange = (event, type) => {
     if (type === "search") {
@@ -99,7 +108,7 @@ const Search = (props) => {
             label=""
             variant="standard"
             sx={{ width: "95%" }}
-            // onChange={(event) => handleChange(event, "search")}
+            value={searchVal}
             onChange={(event) => setsearchVal(event.target.value)}
           />
           <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
