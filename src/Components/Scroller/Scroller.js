@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Mousewheel, EffectCoverflow } from "swiper";
 import { connect } from "react-redux";
@@ -8,6 +8,14 @@ import Styles from "./Scroller.module.css";
 import Short from "../Short/Short";
 
 const Scroller = (props) => {
+  let swiper = useRef();
+
+  useEffect(() => {
+    if (props.type !== "view") {
+      swiper.current.swiper.slideTo(localStorage.getItem("lastVisited"), 0);
+    }
+  }, []);
+
   const stopVideos = function () {
     let videos = document.querySelectorAll("iframe, video");
     Array.prototype.forEach.call(videos, function (video) {
@@ -18,6 +26,7 @@ const Scroller = (props) => {
         video.src = src;
       }
     });
+    localStorage.setItem("lastVisited", swiper.current.swiper.activeIndex);
   };
 
   let shorts = [];
@@ -31,7 +40,8 @@ const Scroller = (props) => {
       return data;
     });
 
-    for (let i = ascShorts.length - 1; i >= 0; i--) {
+    // for (let i = ascShorts.length - 1; i >= 0; i--) {
+    for (let i = 0; i < ascShorts.length; i++) {
       shorts.push(ascShorts[i]);
     }
   }
@@ -52,6 +62,7 @@ const Scroller = (props) => {
         className="mySwiper"
         style={{ height: "inherit" }}
         onSlideChange={() => stopVideos()}
+        ref={swiper}
       >
         {props.type !== "view" ? (
           shorts.map((short) => {
