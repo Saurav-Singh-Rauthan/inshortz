@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import "./muiglobal.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,6 +15,7 @@ import Account from "./Components/Pages/Account/Account";
 import Search from "./Components/Pages/Search/Search";
 import Viewer from "./Components/Pages/Viewer/Viewer";
 import Navbar from "./Components/Navbar/Navbar";
+import Alert from "./Components/Alert/Alert";
 
 const App = (props) => {
   const firebaseConfig = {
@@ -30,14 +31,31 @@ const App = (props) => {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+  const [alert, setalert] = useState({
+    type: null,
+    msg: null,
+    open: false,
+  });
+
   useEffect(() => {
     props.auto_login();
     props.fetch_shorts();
   });
 
+  useEffect(() => {
+    if (props.fetchStatus === false) {
+      setalert({
+        open: true,
+        type: "error",
+        msg: "Couldn't fetch shorts, try again!!!",
+      });
+    }
+  }, [props.fetchStatus]);
+
   return (
     <Router>
       <div className="App">
+        <Alert type={alert.type} open={alert.open} msg={alert.msg} />
         <Routes>
           <Route path="/add-short" element={<AddRecord />} />
           <Route path="/auth" element={<Auth />} />
@@ -60,6 +78,7 @@ const App = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     isAuthenticated: state.auth.token !== null,
+    fetchStatus: state.shorts.fetchStatus,
   };
 };
 
