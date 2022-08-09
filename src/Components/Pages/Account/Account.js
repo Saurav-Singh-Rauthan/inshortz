@@ -14,6 +14,9 @@ const Account = (props) => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
+    if (!props.isAuthenticated) {
+      navigate('/auth');
+    }
   });
 
   return (
@@ -58,7 +61,7 @@ const Account = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    prop: state.prop,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 

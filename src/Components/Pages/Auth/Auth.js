@@ -62,10 +62,10 @@ const Auth = (props) => {
   }, [props.error]);
 
   useEffect(() => {
-    if (props.redirect !== null) {
-      navigate(props.redirect);
+    if (props.token !== null) {
+      navigate("/");
     }
-  }, [props.redirect]);
+  }, [props.redirect,props.token]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

@@ -58,7 +58,7 @@ const AddRecord = (props) => {
       });
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
     } else if (props.created === false) {
       setalert({
         open: true,

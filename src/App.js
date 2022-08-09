@@ -61,10 +61,7 @@ const App = (props) => {
           <Route path="/auth" element={<Auth />} />
           <Route path="/search/:shortID" element={<Viewer />} />
           <Route path="/search" element={<Search />} />
-          <Route
-            path="/account"
-            element={props.isAuthenticated ? <Account /> : <Auth />}
-          />
+          <Route path="/account" element={<Account />} />
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
