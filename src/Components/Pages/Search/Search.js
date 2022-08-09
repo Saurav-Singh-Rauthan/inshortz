@@ -32,6 +32,7 @@ const Search = (props) => {
       setsearchparam(2);
       searchHandler(localStorage.getItem("username"));
     }
+    window.scrollTo(0, 0);
   }, []);
 
   const handleChange = (event, type) => {

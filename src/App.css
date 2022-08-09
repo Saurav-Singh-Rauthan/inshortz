@@ -16,6 +16,7 @@ body {
   display: grid;
   grid-template-rows: 90% 10%;
   position: relative;
+  outline: none;
 }
 
 .swiper-slide {
