@@ -38,7 +38,9 @@ const App = (props) => {
   });
 
   useEffect(() => {
-    props.auto_login();
+    if (localStorage.getItem("token")) {
+      props.auto_login();
+    }
     props.fetch_shorts();
   });
 

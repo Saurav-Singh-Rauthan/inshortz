@@ -149,6 +149,7 @@ export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("id");
   localStorage.removeItem("lastVisited");
+  localStorage.removeItem("username");
 
   return {
     type: actionType.AUTH_LOGOUT,
