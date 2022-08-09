@@ -6,16 +6,32 @@ import { initializeApp } from "firebase/app";
 import { connect } from "react-redux";
 
 import * as actions from "./Components/Store/actions/index";
+import CircularProgress from "@mui/material/CircularProgress";
 
-import Home from "./Components/Pages/Home/Home";
-import AddRecord from "./Components/Pages/AddRecord/AddRecord";
 import NotFound from "./Components/Pages/NotFound/Notfound";
-import Auth from "./Components/Pages/Auth/Auth";
-import Account from "./Components/Pages/Account/Account";
-import Search from "./Components/Pages/Search/Search";
 import Viewer from "./Components/Pages/Viewer/Viewer";
 import Navbar from "./Components/Navbar/Navbar";
 import Alert from "./Components/Alert/Alert";
+
+const Home = React.lazy(() => {
+  return import("./Components/Pages/Home/Home");
+});
+
+const Auth = React.lazy(() => {
+  return import("./Components/Pages/AddRecord/AddRecord");
+});
+
+const Account = React.lazy(() => {
+  return import("./Components/Pages/Account/Account");
+});
+
+const Search = React.lazy(() => {
+  return import("./Components/Pages/Search/Search");
+});
+
+const AddRecord = React.lazy(() => {
+  return import("./Components/Pages/AddRecord/AddRecord");
+});
 
 const App = (props) => {
   const firebaseConfig = {
@@ -58,15 +74,31 @@ const App = (props) => {
     <Router>
       <div className="App">
         <Alert type={alert.type} open={alert.open} msg={alert.msg} />
-        <Routes>
-          <Route path="/add-short" element={<AddRecord />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/search/:shortID" element={<Viewer />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
+        <React.Suspense
+          fallback={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "1rem",
+                height: "100%",
+              }}
+            >
+              <CircularProgress sx={{ color: "#ffe26a" }} size={48} />
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/add-short" element={<AddRecord />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/search/:shortID" element={<Viewer />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </React.Suspense>
 
         <Navbar />
       </div>
