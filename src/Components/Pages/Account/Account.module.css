@@ -62,3 +62,21 @@
   overflow-y: scroll;
   max-height: 80vh;
 }
+
+@media (max-width: 756px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+
+  .userDetails {
+    row-gap: 1.5rem;
+  }
+
+  .userShorts {
+    margin: 2rem 0;
+  }
+}
