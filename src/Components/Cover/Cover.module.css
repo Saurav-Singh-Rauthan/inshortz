@@ -7,6 +7,7 @@
   left: 0;
   top: 0;
   z-index: 122;
+  font-family: Montserrat,sans-serif;
 }
 
 .remCov {
@@ -24,11 +25,9 @@
 
 .remCov a {
   text-decoration: none;
-  background: #f7444e;
   color: #f7f8f3;
   transition: all 0.3s ease-out;
   padding: 1rem;
-  border-bottom: 4px solid #f7f8f3;
 }
 
 .remCov a:hover {

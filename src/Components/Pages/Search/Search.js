@@ -27,6 +27,12 @@ const Search = (props) => {
   useEffect(() => {
     const tag = searchParams.get("tag");
     setsearchVal(tag);
+    if (props.userShorts) {
+      setsearchVal(localStorage.getItem("username"));
+      setsearchparam(2);
+      searchHandler(localStorage.getItem("username"))
+      console.log(setsearchparam,searchVal);
+    }
   }, []);
 
   const handleChange = (event, type) => {
@@ -78,13 +84,18 @@ const Search = (props) => {
       })
     ) : (
       <p style={{ textAlign: "center" }}>
-        No results found for the search query!!
+        {props.userShorts
+          ? "User has created no shorts!!!"
+          : " No results found for the search query!!"}
       </p>
     );
 
   return (
     <div className={Styles.cont}>
-      <div className={Styles.searchCont}>
+      <div
+        className={Styles.searchCont}
+        style={{ display: props.userShorts === true ? "none" : "flex" }}
+      >
         <FormControl sx={{ width: "43%" }}>
           <InputLabel id="demo-simple-select-label">Search By</InputLabel>
           <Select

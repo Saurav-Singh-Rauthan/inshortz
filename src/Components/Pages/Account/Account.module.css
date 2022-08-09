@@ -1,0 +1,64 @@
+.container {
+  background: #f7f8f3;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 30% 68%;
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+
+.heading {
+  font-size: 20px;
+  padding: 1rem 0;
+  margin: 0 0 1rem 0;
+  border-bottom: 2px solid #f7444e;
+  color: #f7444e;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 2rem;
+}
+
+.Btn {
+  padding: 1rem;
+  background: #f7444e;
+  border: none;
+  color: #f7f8f3;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  border: 1px solid #f7444e;
+  z-index: 121;
+  font-family: "Poppins", sans-serif;
+}
+
+.Btn:hover {
+  color: #f7444e;
+  background: #f7f8f3;
+}
+
+.userShorts {
+  border: 1px solid #f7444e;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.heading2 {
+  color: #f7444e;
+  background: #f7f8f3;
+  border: 1px solid #f7444e;
+  padding: 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: -24px;
+  width: fit-content;
+}
+
+.shortsCont {
+  overflow-y: scroll;
+  max-height: 80vh;
+}
