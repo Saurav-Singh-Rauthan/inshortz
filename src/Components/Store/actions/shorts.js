@@ -60,7 +60,6 @@ export const create_short = (
     axiosI
       .post(`/shorts.json?auth=${token}`, shortData)
       .then((res) => {
-        console.log(res);
         dispatch(create_success());
       })
       .catch((err) => {
@@ -75,7 +74,6 @@ export const fetch_shorts = () => {
     axiosI
       .get(`/shorts.json`)
       .then((res) => {
-        console.log(res);
         dispatch(fetch_success(res.data));
       })
       .catch((err) => {

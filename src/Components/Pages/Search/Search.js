@@ -31,7 +31,6 @@ const Search = (props) => {
       setsearchVal(localStorage.getItem("username"));
       setsearchparam(2);
       searchHandler(localStorage.getItem("username"))
-      console.log(setsearchparam,searchVal);
     }
   }, []);
 
