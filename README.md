@@ -5,6 +5,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/77064b01-f2f1-4d6b-aa41-2c76654f0a5d/deploy-status)](https://app.netlify.com/sites/inshortz/deploys)
 [![HitCount](https://hits.dwyl.com/Saurav-Singh-Rauthan/inshortz.svg?style=flat-square)](http://hits.dwyl.com/Saurav-Singh-Rauthan/inshortz)
 
 <!-- PROJECT LOGO -->
@@ -209,7 +210,7 @@ Project Link: [Inshortz](https://github.com/Saurav-Singh-Rauthan/inshortz)
 [issues-shield]: https://img.shields.io/github/issues/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
 [issues-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/issues
 [license-shield]: https://img.shields.io/github/license/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
-[license-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/blob/master/LICENSE.txt
+[license-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
