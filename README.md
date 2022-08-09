@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Saurav-Singh-Rauthan/inshortz">
-    <img src="https://user-images.githubusercontent.com/54982868/181566817-9418f2e9-57ea-45ae-930a-41f7bf878f9b.png" alt="Logo" width="fit-content" height="fit-content">
+    <img src="https://user-images.githubusercontent.com/54982868/183731622-953539d1-e3b9-406e-9386-4f2fb7da74e2.png" alt="Logo" width="fit-content" height="200px">
 
   </a>
 
@@ -135,7 +135,7 @@ To get a local copy up and running follow these simple example steps.
 
 5. set up firebase rules for realtime database
 
-- ![image](https://user-images.githubusercontent.com/54982868/181607072-339dd791-2fee-49af-b8c4-7d08ba850168.png)
+- ![image](https://user-images.githubusercontent.com/54982868/183733549-dd7f40c8-12f4-4f72-b6d2-fd7a19e81c92.png)
 
 6. start the project 🚀
    ```sh
@@ -147,7 +147,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-
+![image](https://user-images.githubusercontent.com/54982868/183732514-63e5be60-7453-4c27-88af-cd753d9a9579.png)
 
 _For more examples, please refer to the [inshortz.netlify.app](https://inshortz.netlify.app)_
 
@@ -192,7 +192,7 @@ Project Link: [Inshortz](https://github.com/Saurav-Singh-Rauthan/inshortz)
 <!-- 
 ## Acknowledgments
 
-- [Fuel Price API by @its-arpit](https://github.com/its-arpit/fuel_price_api_india) 
+- 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 -->
@@ -200,16 +200,16 @@ Project Link: [Inshortz](https://github.com/Saurav-Singh-Rauthan/inshortz)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Saurav-Singh-Rauthan/Vaahan.svg?style=for-the-badge
-[contributors-url]: https://github.com/Saurav-Singh-Rauthan/Vaahan/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Saurav-Singh-Rauthan/Vaahan.svg?style=for-the-badge
-[forks-url]: https://github.com/Saurav-Singh-Rauthan/Vaahan/network/members
-[stars-shield]: https://img.shields.io/github/stars/Saurav-Singh-Rauthan/Vaahan.svg?style=for-the-badge
-[stars-url]: https://github.com/Saurav-Singh-Rauthan/Vaahan/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Saurav-Singh-Rauthan/Vaahan.svg?style=for-the-badge
-[issues-url]: https://github.com/Saurav-Singh-Rauthan/Vaahan/issues
-[license-shield]: https://img.shields.io/github/license/Saurav-Singh-Rauthan/Vaahan.svg?style=for-the-badge
-[license-url]: https://github.com/Saurav-Singh-Rauthan/Vaahan/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
+[contributors-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
+[forks-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/network/members
+[stars-shield]: https://img.shields.io/github/stars/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
+[stars-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
+[issues-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/issues
+[license-shield]: https://img.shields.io/github/license/Saurav-Singh-Rauthan/inshortz.svg?style=for-the-badge
+[license-url]: https://github.com/Saurav-Singh-Rauthan/inshortz/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
