@@ -30,7 +30,7 @@ const Search = (props) => {
     if (props.userShorts) {
       setsearchVal(localStorage.getItem("username"));
       setsearchparam(2);
-      searchHandler(localStorage.getItem("username"))
+      searchHandler(localStorage.getItem("username"));
     }
   }, []);
 
@@ -53,13 +53,16 @@ const Search = (props) => {
     if (searchparam === 1) {
       setretData(
         loadedShorts?.filter((short) => {
-          return short.tags?.includes(searchVal);
+          const tags = short.tags?.map((tag) => {
+            return tag.toLowerCase();
+          });
+          return tags?.includes(searchVal?.toLowerCase());
         })
       );
     } else {
       setretData(
         loadedShorts?.filter((short) => {
-          return short.author === value;
+          return short.author.toLowerCase() === value.toLowerCase();
         })
       );
     }
