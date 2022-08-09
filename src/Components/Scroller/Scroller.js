@@ -12,7 +12,12 @@ const Scroller = (props) => {
 
   useEffect(() => {
     if (props.type !== "view") {
-      swiper.current.swiper.slideTo(localStorage.getItem("lastVisited"), 0);
+      swiper.current.swiper.slideTo(
+        localStorage.getItem("lastVisited")
+          ? localStorage.getItem("lastVisited")
+          : 0,
+        0
+      );
     }
   }, []);
 

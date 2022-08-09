@@ -48,7 +48,7 @@ const Search = (props) => {
     if (searchparam === 1) {
       setretData(
         loadedShorts?.filter((short) => {
-          return short.tags.includes(searchVal);
+          return short.tags?.includes(searchVal);
         })
       );
     } else {
