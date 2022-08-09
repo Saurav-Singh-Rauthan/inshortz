@@ -18,7 +18,7 @@ const Home = React.lazy(() => {
 });
 
 const Auth = React.lazy(() => {
-  return import("./Components/Pages/AddRecord/AddRecord");
+  return import("./Components/Pages/Auth/Auth");
 });
 
 const Account = React.lazy(() => {
