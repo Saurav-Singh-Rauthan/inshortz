@@ -4,6 +4,7 @@ import "./muiglobal.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { connect } from "react-redux";
+import Div100vh from "react-div-100vh";
 
 import * as actions from "./Components/Store/actions/index";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -72,36 +73,38 @@ const App = (props) => {
 
   return (
     <Router>
-      <div className="App">
-        <Alert type={alert.type} open={alert.open} msg={alert.msg} />
-        <React.Suspense
-          fallback={
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: "1rem",
-                height: "100%",
-              }}
-            >
-              <CircularProgress sx={{ color: "#ffe26a" }} size={48} />
-            </div>
-          }
-        >
-          <Routes>
-            <Route path="/add-short" element={<AddRecord />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/search/:shortID" element={<Viewer />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/*" element={<NotFound />} />
-          </Routes>
-        </React.Suspense>
+      <Div100vh>
+        <div className="App">
+          <Alert type={alert.type} open={alert.open} msg={alert.msg} />
+          <React.Suspense
+            fallback={
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "1rem",
+                  height: "100%",
+                }}
+              >
+                <CircularProgress sx={{ color: "#ffe26a" }} size={48} />
+              </div>
+            }
+          >
+            <Routes>
+              <Route path="/add-short" element={<AddRecord />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/search/:shortID" element={<Viewer />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/*" element={<NotFound />} />
+            </Routes>
+          </React.Suspense>
 
-        <Navbar />
-      </div>
+          <Navbar />
+        </div>
+      </Div100vh>
     </Router>
   );
 };
