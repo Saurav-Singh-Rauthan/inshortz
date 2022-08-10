@@ -59,7 +59,6 @@
 .descCont {
   width: 90%;
   height: 100%;
-  border-radius: 8px 8px 0 0;
   background: #f7f8f3;
   margin: 0 auto;
   padding: 2rem;
@@ -135,11 +134,22 @@
   opacity: 0;
   border-radius: 16px 16px 0 0;
   padding: 2rem;
+  z-index: 80;
 }
 
 .tagDivVisible {
   transform: translateY(0);
   opacity: 1;
+}
+
+.tagCover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 79;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
 }
 
 .tag {

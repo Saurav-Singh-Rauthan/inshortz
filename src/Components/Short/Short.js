@@ -114,7 +114,12 @@ const Short = (props) => {
             />
           )}
         </div>
-        <div className={Styles.descCont} onClick={() => setshowTags(!showtags)}>
+        <div className={Styles.descCont}>
+          <div
+            style={{ display: showtags ? "block" : "none" }}
+            className={Styles.tagCover}
+            onClick={() => setshowTags(0)}
+          ></div>
           <p className={Styles.title}>
             {shortState.title ? shortState.title : ""}
           </p>
