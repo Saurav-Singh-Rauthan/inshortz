@@ -102,7 +102,6 @@ export const authenticate = (email, password, username, type) => {
           axiosI
             .post(`/users.json?auth=${res.data.idToken}`, newUser)
             .then((res) => {
-              console.log("user created");
               localStorage.setItem("username", newUser.username);
               dispatch(
                 auth(
