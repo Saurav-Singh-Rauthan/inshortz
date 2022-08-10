@@ -19,6 +19,7 @@ const Short = (props) => {
 
   const [loading, setloading] = useState(true);
   const [fullscreen, setfullscreen] = useState(false);
+  const [showtags, setshowTags] = useState(false);
 
   useEffect(() => {
     setshortState({
@@ -61,11 +62,13 @@ const Short = (props) => {
     ? shortState.tags.map((tag, index) => {
         return (
           <Link
-            to={`/search?tag=${tag}`}
+            to={`/search?tag=${
+              new URLSearchParams(tag).toString().split("=")[0]
+            }`}
             key={`${tag}_${index}`}
             className={Styles.tag}
           >
-            {`#${tag}`}
+            {`${tag}`}
           </Link>
         );
       })
@@ -111,7 +114,7 @@ const Short = (props) => {
             />
           )}
         </div>
-        <div className={Styles.descCont}>
+        <div className={Styles.descCont} onClick={() => setshowTags(!showtags)}>
           <p className={Styles.title}>
             {shortState.title ? shortState.title : ""}
           </p>
@@ -121,7 +124,18 @@ const Short = (props) => {
           <p className={Styles.author}>
             Author : {shortState.author ? shortState.author : ""}
           </p>
-          <div className={Styles.tagCont}>{tags}</div>
+          <div
+            className={Styles.tagCont}
+            onClick={() => setshowTags(!showtags)}
+          >
+            <div className={!showtags ? Styles.tagsDiv : Styles.tagDivVisible}>
+              {shortState.tags?.length > 0 ? (
+                tags
+              ) : (
+                <p className={Styles.noTags}>No tags available for the short</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>

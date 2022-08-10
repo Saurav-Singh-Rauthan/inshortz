@@ -305,7 +305,7 @@ const AddRecord = (props) => {
         <div
           style={{
             overflowY: "scroll",
-            height: "430px",
+            height: "428px",
             background: "#f7f8f3",
           }}
         >
