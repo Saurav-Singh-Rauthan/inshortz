@@ -26,6 +26,7 @@ const authReducer = (state = initialState, action) => {
         token: action.token,
         id: action.id,
         username: action.username,
+        redirect: "/",
       };
     case actionTypes.AUTH_FAILED:
       return {
@@ -44,7 +45,6 @@ const authReducer = (state = initialState, action) => {
         error: null,
         errorMsg: null,
         loading: null,
-        redirect: "/",
       };
     case actionTypes.AUTH_LOGOUT:
       return {

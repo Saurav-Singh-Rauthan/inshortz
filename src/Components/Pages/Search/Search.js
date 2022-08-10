@@ -63,7 +63,7 @@ const Search = (props) => {
     } else {
       setretData(
         loadedShorts?.filter((short) => {
-          return short.author.toLowerCase() === value.toLowerCase();
+          return short.author?.toLowerCase() === value?.toLowerCase();
         })
       );
     }

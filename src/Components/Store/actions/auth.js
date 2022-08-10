@@ -103,6 +103,15 @@ export const authenticate = (email, password, username, type) => {
             .post(`/users.json?auth=${res.data.idToken}`, newUser)
             .then((res) => {
               console.log("user created");
+              localStorage.setItem("username", newUser.username);
+              dispatch(
+                auth(
+                  res.data.email,
+                  res.data.idToken,
+                  res.data.localId,
+                  newUser.username
+                )
+              );
             })
             .catch((err) => {
               console.log(err);
